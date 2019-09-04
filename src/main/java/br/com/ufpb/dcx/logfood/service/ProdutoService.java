@@ -1,6 +1,7 @@
 package br.com.ufpb.dcx.logfood.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,13 @@ public class ProdutoService {
 
 	public List<Produto> findAll() {
 		return produtoRepository.findAll();
+	}
+
+	public void delete(Long id) {
+		Optional<Produto> prod = produtoRepository.findById(id);
+		if (prod.isPresent()) {
+			produtoRepository.deleteById(id);
+		} 
 	}
 
 }
