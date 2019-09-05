@@ -1,4 +1,4 @@
-package br.com.ufpb.dcx.logfood.model;
+/*package br.com.ufpb.dcx.logfood.model;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +20,19 @@ public class Pedido {
 	private Long id;
 	private Date data = new Date();
 	
+	public Pedido() {
+		
+	}
+	
+	
+	
+	public Pedido(Long id, Date data) {
+		this.id = id;
+		this.data = data;
+	}
+
+
+
 	@ManyToMany
 	@JoinTable(name="PEDIDO_PRODUTO",
 			joinColumns = @JoinColumn(name="pedido_id"),
@@ -40,3 +53,4 @@ public class Pedido {
 	}
 	
 }
+*/

@@ -1,7 +1,6 @@
 package br.com.ufpb.dcx.logfood.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+/*
 import br.com.ufpb.dcx.logfood.model.Pedido;
 import br.com.ufpb.dcx.logfood.service.PedidoService;
 
@@ -27,7 +26,7 @@ public class PedidoController {
 	}
 
 	@GetMapping("/{id}")
-	public Optional <Pedido> getPedidoById (@PathVariable Long id) {
+	public Pedido getPedidoById (@PathVariable Long id) {
 		return pedidoService.findById(id);
 	}
 	
@@ -36,3 +35,4 @@ public class PedidoController {
 		pedidoService.addPedido(pedido);
 	}
 }
+*/

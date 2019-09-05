@@ -7,21 +7,69 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Produto {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	private Long id;
 	private String titulo;
 	private String descricao;
 	private double valor;
 	
+	@ManyToOne
+	@JoinColumn
+	private Estabelecimento estabelecimento;
+	
+	public Produto() {
+		
+	}
+	
+	public Produto(Long id, String titulo, String descricao, double valor) {
+		this.id = id;
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.valor = valor;
+	}
+	
+	
+	public Produto(Long id, String titulo, String descricao, double valor, Estabelecimento estabelecimento) {
+		this.id = id;
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.estabelecimento = estabelecimento;
+	}
+
+	/*
 	@ManyToMany(mappedBy = "produtos")
 	private List<Pedido> pedidos = new ArrayList<>(); 
 	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+	*/
+	
+	
+	
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+	public Estabelecimento getEstabelecimento() {
+		return estabelecimento;
+	}
+
+	public void setEstabelecimento(Estabelecimento estabelecimento) {
+		this.estabelecimento = estabelecimento;
+	}
+
 	public Long getId() {
 		return id;
 	}

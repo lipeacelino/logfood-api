@@ -1,4 +1,4 @@
-package br.com.ufpb.dcx.logfood.service;
+/*package br.com.ufpb.dcx.logfood.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,8 +15,9 @@ public class PedidoService {
 	@Autowired
 	PedidoRepository pedidoRepository;
 	
-	public Optional<Pedido> findById(Long id) {
-		return pedidoRepository.findById(id);
+	public Pedido findById(Long id) {
+		Optional<Pedido> pedido = pedidoRepository.findById(id);
+		return pedido.orElse(null);
 	}
 
 	public void addPedido(Pedido pedido) {
@@ -28,3 +29,4 @@ public class PedidoService {
 	}
 
 }
+*/
