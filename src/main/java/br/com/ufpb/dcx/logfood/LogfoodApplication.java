@@ -32,9 +32,9 @@ public class LogfoodApplication implements CommandLineRunner{
 		Produto prod2 = new Produto(null, "Hambúrguer vegano", "Hamburguer de soja e salada", 9.00);
 		Produto prod3 = new Produto(null, "Hambúrguer", "Hamburguer e salada", 3.00);
 		
-		Estabelecimento est1 = new Estabelecimento(null, "Pizzaria do dedé", "Pizzaria", "Pizzas baratas e gostosas");
-		Estabelecimento est2 = new Estabelecimento(null, "Padaria Céu Azul", "Padaria", "Pães e lanches");
-		Estabelecimento est3 = new Estabelecimento(null, "Lanchonete ponto x", "Lanches", "lanches deliciosos");
+		Estabelecimento est1 = new Estabelecimento(null, "Pizzaria do dedé", "Pizzaria", "Pizzas baratas e gostosas", Arrays.asList(prod1));
+		Estabelecimento est2 = new Estabelecimento(null, "Padaria Céu Azul", "Padaria", "Pães e lanches", Arrays.asList(prod2));
+		Estabelecimento est3 = new Estabelecimento(null, "Lanchonete ponto x", "Lanches", "lanches deliciosos", Arrays.asList(prod3));
 		
 
 		/*

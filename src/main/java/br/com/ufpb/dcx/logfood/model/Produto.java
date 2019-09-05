@@ -1,14 +1,9 @@
 package br.com.ufpb.dcx.logfood.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -22,7 +17,6 @@ public class Produto {
 	private double valor;
 	
 	@ManyToOne
-	@JoinColumn
 	private Estabelecimento estabelecimento;
 	
 	public Produto() {
@@ -62,6 +56,7 @@ public class Produto {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
+	/*
 	public Estabelecimento getEstabelecimento() {
 		return estabelecimento;
 	}
@@ -69,7 +64,7 @@ public class Produto {
 	public void setEstabelecimento(Estabelecimento estabelecimento) {
 		this.estabelecimento = estabelecimento;
 	}
-
+	*/
 	public Long getId() {
 		return id;
 	}
