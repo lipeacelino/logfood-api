@@ -1,23 +1,35 @@
 package br.com.ufpb.dcx.logfood.model;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
-public class Produto {
+public class Produto implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String titulo;
 	private String descricao;
 	private double valor;
 	
+	@JsonManagedReference
 	@ManyToOne
 	private Estabelecimento estabelecimento;
+	
+	@ManyToMany
+	private List<Pedido> pedido;
 	
 	public Produto() {
 		
@@ -56,15 +68,15 @@ public class Produto {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-	/*
+	
 	public Estabelecimento getEstabelecimento() {
 		return estabelecimento;
 	}
-
+	
 	public void setEstabelecimento(Estabelecimento estabelecimento) {
 		this.estabelecimento = estabelecimento;
 	}
-	*/
+	
 	public Long getId() {
 		return id;
 	}

@@ -1,4 +1,4 @@
-/*package br.com.ufpb.dcx.logfood.service;
+package br.com.ufpb.dcx.logfood.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,4 +29,3 @@ public class PedidoService {
 	}
 
 }
-*/
