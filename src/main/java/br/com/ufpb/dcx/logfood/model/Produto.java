@@ -9,7 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -30,6 +32,10 @@ public class Produto implements Serializable {
 	
 	@ManyToMany
 	private List<Pedido> pedido;
+	
+	@JsonBackReference
+	@OneToMany
+	private List<ItemPedido> item;
 	
 	public Produto() {
 		
