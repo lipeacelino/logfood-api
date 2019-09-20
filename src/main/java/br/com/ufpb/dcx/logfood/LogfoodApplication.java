@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.com.ufpb.dcx.logfood.model.Estabelecimento;
 import br.com.ufpb.dcx.logfood.model.Produto;
+import br.com.ufpb.dcx.logfood.model.Proprietario;
 import br.com.ufpb.dcx.logfood.repository.EstabelecimentoRepository;
 import br.com.ufpb.dcx.logfood.repository.ProdutoRepository;
 

@@ -23,12 +23,12 @@ public class EstabelecimentoController {
 	private EstabelecimentoService estabelecimentoService;
 	
 	@PostMapping
-	public void addProduto(@RequestBody Estabelecimento estabelecimento) {
+	public void addEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
 		estabelecimentoService.save(estabelecimento);
 	}
 	
 	@GetMapping
-	public List<Estabelecimento> getProdutos() {
+	public List<Estabelecimento> getEstablecimentos() {
 		return estabelecimentoService.findAll();
 	}
 	

@@ -13,7 +13,7 @@ import br.com.ufpb.dcx.logfood.repository.ProdutoRepository;
 public class ProdutoService {
 	
 	@Autowired
-	ProdutoRepository produtoRepository;
+	private ProdutoRepository produtoRepository;
 
 	public void save(Produto produto) {
 		produtoRepository.save(produto);

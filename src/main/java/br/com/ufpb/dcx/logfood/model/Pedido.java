@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -24,31 +24,37 @@ public class Pedido {
 	private String cidade;
 	private String estado;
 	
-	@ManyToMany
-	private List<Produto> produtos;
-	/**
-	 * o que falta fazer: a relação entre pedido produto e estabelecimento
-	 */
 	@JsonManagedReference
 	@ManyToOne
 	private Estabelecimento estabelecimento;
+	
+	@JsonManagedReference
+	@OneToMany
+	private List<ItemPedido> itens;
 	
 	public Pedido() {
 		
 	}
 
-	public Pedido(Long id, String endereco, double numero, String cidade, String estado, List<Produto> produtos,
+	public Pedido(Long id, String endereco, double numero, String cidade, String estado,
 			Estabelecimento estabelecimento) {
 		this.id = id;
 		this.endereco = endereco;
 		this.numero = numero;
 		this.cidade = cidade;
 		this.estado = estado;
-		this.produtos = produtos;
 		this.estabelecimento = estabelecimento;
 	}
 
+	
 
+	public List<ItemPedido> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<ItemPedido> itens) {
+		this.itens = itens;
+	}
 
 	public Long getId() {
 		return id;
@@ -88,14 +94,6 @@ public class Pedido {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
-	}
-
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
 	}
 
 	public Estabelecimento getEstabelecimento() {

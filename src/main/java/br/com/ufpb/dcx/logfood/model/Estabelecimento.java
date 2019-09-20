@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -33,6 +34,9 @@ public class Estabelecimento implements Serializable {
 	@JsonBackReference
 	@OneToMany(cascade = { CascadeType.ALL })
 	private List<Produto> produtos = new ArrayList<>();
+	
+	@OneToOne
+	private Proprietario proprietario;
 
 	public Estabelecimento() {
 
@@ -101,4 +105,13 @@ public class Estabelecimento implements Serializable {
 		this.descricao = descricao;
 	}
 
+	public Proprietario getProprietario() {
+		return proprietario;
+	}
+
+	public void setProprietario(Proprietario proprietario) {
+		this.proprietario = proprietario;
+	}
+	
+	
 }

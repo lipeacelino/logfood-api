@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -21,6 +22,10 @@ public class ItemPedido {
 	private Produto produto;
 	
 	private int quantidade;
+	
+	@JsonBackReference
+	@ManyToOne
+	private Pedido pedido;
 	
 	public ItemPedido() {
 		
