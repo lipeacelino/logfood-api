@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Estabelecimento implements Serializable {
@@ -31,10 +32,10 @@ public class Estabelecimento implements Serializable {
 	private List<Pedido> pedido;
 
 	@JsonBackReference
-	@OneToMany(cascade = { CascadeType.ALL })
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Produto> produtos = new ArrayList<>();
-	
-	@OneToOne
+	@JsonManagedReference
+	@OneToOne(cascade = CascadeType.ALL)
 	private Proprietario proprietario;
 
 	public Estabelecimento() {
@@ -48,14 +49,27 @@ public class Estabelecimento implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Estabelecimento(Long id, String nome, String categoria, String descricao, List<Produto> produtos) {
+	public Estabelecimento(Long id, String nome, String categoria, String descricao, Proprietario prop) {
 		this.id = id;
 		this.nome = nome;
 		this.categoria = categoria;
 		this.descricao = descricao;
-		this.produtos = produtos;
+		this.proprietario = prop;
 	}
 	
+	
+	
+	public Estabelecimento(Long id, String nome, String categoria, String descricao, List<Pedido> pedido,
+			List<Produto> produtos, Proprietario proprietario) {
+		this.id = id;
+		this.nome = nome;
+		this.categoria = categoria;
+		this.descricao = descricao;
+		this.pedido = pedido;
+		this.produtos = produtos;
+		this.proprietario = proprietario;
+	}
+
 	public List<Produto> getProdutos() {
 		return produtos;
 	}

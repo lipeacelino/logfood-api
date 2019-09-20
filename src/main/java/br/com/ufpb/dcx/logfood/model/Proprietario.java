@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Proprietario{
 	
@@ -16,6 +18,7 @@ public class Proprietario{
 	private String email;
 	private String senha;
 	
+	@JsonBackReference
 	@OneToOne
 	private Estabelecimento estabelecimento;
 	

@@ -33,7 +33,9 @@ public class LogfoodApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Estabelecimento est1 = new Estabelecimento(null, "Pizzaria do dedé", "Pizzaria", "Pizzas baratas e gostosas");
+		Proprietario prop1 = new Proprietario(null, "Felipe", "felipe@gmail.com", "sdfsdfsdf" );
+		
+		Estabelecimento est1 = new Estabelecimento(null, "Pizzaria do dedé", "Pizzaria", "Pizzas baratas e gostosas", prop1);
 		Estabelecimento est2 = new Estabelecimento(null, "Padaria Céu Azul", "Padaria", "Pães e lanches");
 		Estabelecimento est3 = new Estabelecimento(null, "Lanchonete ponto x", "Lanches", "lanches deliciosos");
 		
@@ -45,6 +47,7 @@ public class LogfoodApplication implements CommandLineRunner{
 		est1.setProdutos((Arrays.asList(prod1)));
 		est2.setProdutos((Arrays.asList(prod2)));
 		est3.setProdutos((Arrays.asList(prod3)));
+		prop1.setEstabelecimento(est1);
 		
 		//produtoRepository.saveAll(Arrays.asList(prod1, prod2, prod3));
 		estabelecimentoRepository.saveAll(Arrays.asList(est1, est2, est3));

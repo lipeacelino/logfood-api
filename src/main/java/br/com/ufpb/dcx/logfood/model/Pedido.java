@@ -36,7 +36,11 @@ public class Pedido {
 		this.estabelecimento = estabelecimento;
 	}
 
-	
+	public Pedido(Long id, Estabelecimento estabelecimento, List<ItemPedido> itens) {
+		this.id = id;
+		this.estabelecimento = estabelecimento;
+		this.itens = itens;
+	}
 
 	public List<ItemPedido> getItens() {
 		return itens;

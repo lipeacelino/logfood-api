@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -28,11 +27,25 @@ public class ItemPedido {
 	@ManyToOne
 	private Pedido pedido;
 	
-	@OneToOne
-	private Endereco endereco;
+	private String endereco;
+	private double numero;
+	private String cidade;
+	private String estado;
 	
 	public ItemPedido() {
 		
+	}
+	
+	public ItemPedido(long id, Produto produto, int quantidade, Pedido pedido, String endereco, double numero,
+			String cidade, String estado) {
+		this.id = id;
+		this.produto = produto;
+		this.quantidade = quantidade;
+		this.pedido = pedido;
+		this.endereco = endereco;
+		this.numero = numero;
+		this.cidade = cidade;
+		this.estado = estado;
 	}
 	
 	public Pedido getPedido() {
@@ -43,12 +56,36 @@ public class ItemPedido {
 		this.pedido = pedido;
 	}
 
-	public Endereco getEndereco() {
+	public String getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(Endereco endereco) {
+	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public double getNumero() {
+		return numero;
+	}
+
+	public void setNumero(double numero) {
+		this.numero = numero;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public long getId() {

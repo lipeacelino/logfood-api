@@ -1,3 +1,4 @@
+/*
 package br.com.ufpb.dcx.logfood.model;
 
 import javax.persistence.Entity;
@@ -71,3 +72,4 @@ public class Endereco {
 	}
 	
 }
+*/
