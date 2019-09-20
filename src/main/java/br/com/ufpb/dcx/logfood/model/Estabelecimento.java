@@ -19,7 +19,6 @@ public class Estabelecimento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	// Establecimento tem um proprietário
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -56,7 +55,7 @@ public class Estabelecimento implements Serializable {
 		this.descricao = descricao;
 		this.produtos = produtos;
 	}
-
+	
 	public List<Produto> getProdutos() {
 		return produtos;
 	}

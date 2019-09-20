@@ -28,6 +28,14 @@ public class Proprietario{
 		this.senha = senha;
 	}
 
+	public Estabelecimento getEstabelecimento() {
+		return estabelecimento;
+	}
+
+	public void setEstabelecimento(Estabelecimento estabelecimento) {
+		this.estabelecimento = estabelecimento;
+	}
+
 	public Long getId() {
 		return id;
 	}
