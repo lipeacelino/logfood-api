@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.ufpb.dcx.logfood.dto.EditarProdutoDTO;
 import br.com.ufpb.dcx.logfood.dto.ExibirProdutoDTO;
 import br.com.ufpb.dcx.logfood.dto.NovoProdutoDTO;
 import br.com.ufpb.dcx.logfood.model.Produto;
@@ -36,6 +38,13 @@ public class ProdutoController {
 		List<ExibirProdutoDTO> listaDTO = lista.stream()
 				.map(obj -> new ExibirProdutoDTO(obj)).collect(Collectors.toList());
 		return listaDTO;
+	}
+	
+	@PutMapping(value="/{id}")
+	public void updateProduto(@RequestBody EditarProdutoDTO objDTO, @PathVariable Long id) {
+		Produto produto = produtoService.fromDTO(objDTO);
+		produto.setId(id);
+		produtoService.update(id, produto);
 	}
 	
 	@DeleteMapping("/{id}")

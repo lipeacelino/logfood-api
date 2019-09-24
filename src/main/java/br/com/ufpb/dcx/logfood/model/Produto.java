@@ -100,8 +100,5 @@ public class Produto implements Serializable {
 	public double getValor() {
 		return valor;
 	}
-	public void setValor(float valor) {
-		this.valor = valor;
-	}
 	
 }
