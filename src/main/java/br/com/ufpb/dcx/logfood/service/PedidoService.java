@@ -24,9 +24,9 @@ public class PedidoService {
 	ItemPedidoRepository itemRepository;
 	
 	
-	public Pedido findById(Long id) {
+	public Optional<Pedido> findById(Long id) {
 		Optional<Pedido> pedido = pedidoRepository.findById(id);
-		return pedido.orElse(null);
+		return pedido;
 	}
 
 	public void addPedido(Pedido pedido) {
@@ -48,5 +48,9 @@ public class PedidoService {
 		item.setData(sdf.format(new Date()));
 		item.setItens(listaItens);
 		return item;
+	}
+
+	public List<Pedido> findAll() {
+		return pedidoRepository.findAll();
 	}
 }

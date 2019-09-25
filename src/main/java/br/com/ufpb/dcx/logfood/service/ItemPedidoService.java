@@ -1,6 +1,7 @@
 package br.com.ufpb.dcx.logfood.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,15 @@ public class ItemPedidoService {
 
 	public List<ItemPedido> findAll() {
 		return itemPedidoRep.findAll();
+	}
+
+	public Optional<ItemPedido> getById(Long id) {
+		return itemPedidoRep.findById(id);
+	}
+
+	public void delete(Long id) {
+		itemPedidoRep.deleteById(id);
+		
 	}
 	
 	//falta o delete e put
