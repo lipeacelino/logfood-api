@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.ufpb.dcx.logfood.dto.NovoPedidoDTO;
 import br.com.ufpb.dcx.logfood.model.Pedido;
 import br.com.ufpb.dcx.logfood.service.PedidoService;
 
@@ -31,7 +32,8 @@ public class PedidoController {
 	}
 	
 	@PostMapping
-	public void addPedido(@RequestBody Pedido pedido) { //Produto, pagamento, pedido
-		pedidoService.addPedido(pedido);
+	public void addItem(@RequestBody NovoPedidoDTO itemDTO) {
+		Pedido item = pedidoService.fromDTO(itemDTO);
+		pedidoService.addPedido(item);
 	}
 }

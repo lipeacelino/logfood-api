@@ -25,12 +25,12 @@ public class Estabelecimento implements Serializable {
 	private String nome;
 	private String categoria;
 	private String descricao;
-	
+	/*
 	//@JsonBackReference
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Pedido> pedido;
-
+*/
 	//@JsonBackReference
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
@@ -61,27 +61,18 @@ public class Estabelecimento implements Serializable {
 	
 	
 	
-	public Estabelecimento(Long id, String nome, String categoria, String descricao, List<Pedido> pedido,
+	public Estabelecimento(Long id, String nome, String categoria, String descricao,
 			List<Produto> produtos, Proprietario proprietario) {
 		this.id = id;
 		this.nome = nome;
 		this.categoria = categoria;
 		this.descricao = descricao;
-		this.pedido = pedido;
 		this.produtos = produtos;
 		this.proprietario = proprietario;
 	}
 
 	public List<Produto> getProdutos() {
 		return produtos;
-	}
-	
-	public List<Pedido> getPedido() {
-		return pedido;
-	}
-
-	public void setPedido(List<Pedido> pedido) {
-		this.pedido = pedido;
 	}
 
 	public void setProdutos(List<Produto> produtos) {

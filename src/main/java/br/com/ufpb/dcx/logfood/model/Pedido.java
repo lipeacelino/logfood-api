@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,36 +17,30 @@ public class Pedido {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	
 	private Long id;
-	
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd, MM, yyyy : hh:mm:ss");
 	private String data;
 	private String status;
 	
-	
+	/*
 	//@JsonManagedReference
 	@ManyToOne
 	private Estabelecimento estabelecimento;
-	
+	*/
 	//@JsonManagedReference
 	@OneToMany
 	private List<ItemPedido> itens;
 	
 	public Pedido() {
-		this.data = sdf.format(new Date());
+		
 	}
 
-	public Pedido(Long id,
-			Estabelecimento estabelecimento) {
+	public Pedido(Long id, List<ItemPedido> itens) {
 		this.id = id;
-		this.estabelecimento = estabelecimento;
-		this.data = sdf.format(new Date());
-	}
-
-	public Pedido(Long id, Estabelecimento estabelecimento, List<ItemPedido> itens) {
-		this.id = id;
-		this.estabelecimento = estabelecimento;
 		this.itens = itens;
-		this.data = sdf.format(new Date());
+		
+	}
+	
+	public Pedido(Long id) {
+		this.id = id;
 	}
 
 	public List<ItemPedido> getItens() {
@@ -66,13 +59,6 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public Estabelecimento getEstabelecimento() {
-		return estabelecimento;
-	}
-
-	public void setEstabelecimento(Estabelecimento estabelecimento) {
-		this.estabelecimento = estabelecimento;
-	}
 
 	public String getData() {
 		return data;
