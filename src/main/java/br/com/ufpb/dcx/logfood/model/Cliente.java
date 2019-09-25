@@ -1,12 +1,21 @@
 package br.com.ufpb.dcx.logfood.model;
 
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Cliente {
+public class Cliente implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -16,6 +25,9 @@ public class Cliente {
 	private String senha;
 	
 	//pedido
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<ItemPedido> itens;
 	
 	public Cliente() {}
 	
@@ -57,4 +69,15 @@ public class Cliente {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+/*
+	public List<ItemPedido> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<ItemPedido> itens) {
+		this.itens = itens;
+	}
+*/
+	
+	
 }

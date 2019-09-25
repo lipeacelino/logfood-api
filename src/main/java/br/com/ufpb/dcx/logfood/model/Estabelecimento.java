@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -27,14 +28,17 @@ public class Estabelecimento implements Serializable {
 	private String categoria;
 	private String descricao;
 	
-	@JsonBackReference
+	//@JsonBackReference
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Pedido> pedido;
 
-	@JsonBackReference
+	//@JsonBackReference
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Produto> produtos = new ArrayList<>();
-	@JsonManagedReference
+	
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Proprietario proprietario;
 

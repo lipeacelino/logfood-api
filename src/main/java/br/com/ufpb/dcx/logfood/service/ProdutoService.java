@@ -53,7 +53,6 @@ public class ProdutoService {
 	}
 	
 	public Produto fromDTO(NovoProdutoDTO prodDTO) {
-		//Optional<Estabelecimento> est = estRepository.findById(prodDTO.getEstID()).get();
 		Produto prod = new Produto(null, prodDTO.getTitulo(), prodDTO.getDescricao(), prodDTO.getValor(), 
 				estRepository.findById(prodDTO.getEstabelecimentoId()).get());
 		return prod;

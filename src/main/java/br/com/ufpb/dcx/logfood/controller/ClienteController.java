@@ -2,6 +2,7 @@ package br.com.ufpb.dcx.logfood.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.ufpb.dcx.logfood.dto.ExibirClienteDTO;
 import br.com.ufpb.dcx.logfood.model.Cliente;
 import br.com.ufpb.dcx.logfood.service.ClienteService;
 
@@ -34,13 +36,18 @@ public class ClienteController {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public Optional<Cliente> getById(@PathVariable("id") Long id){
-		return clienteService.getById(id);
+	public ExibirClienteDTO getById(@PathVariable("id") Long id){
+		Optional<Cliente> obj = clienteService.getById(id);
+		ExibirClienteDTO objDTO = new ExibirClienteDTO(obj.get());
+		return objDTO;
 	}
 	
 	@GetMapping
-	public List<Cliente> getCliente() {
-		return clienteService.findAll();
+	public List<ExibirClienteDTO> getProdutos() {
+		List<Cliente> lista = clienteService.findAll();
+		List<ExibirClienteDTO> listaDTO = lista.stream().map(obj -> new ExibirClienteDTO(obj))
+				.collect(Collectors.toList());
+		return listaDTO;
 	}
 	
 	@DeleteMapping("/{id}")

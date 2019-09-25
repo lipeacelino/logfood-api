@@ -7,10 +7,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import br.com.ufpb.dcx.logfood.model.Cliente;
 import br.com.ufpb.dcx.logfood.model.Estabelecimento;
+import br.com.ufpb.dcx.logfood.model.ItemPedido;
 import br.com.ufpb.dcx.logfood.model.Produto;
 import br.com.ufpb.dcx.logfood.model.Proprietario;
+import br.com.ufpb.dcx.logfood.repository.ClienteRepository;
 import br.com.ufpb.dcx.logfood.repository.EstabelecimentoRepository;
+import br.com.ufpb.dcx.logfood.repository.ItemPedidoRepository;
 import br.com.ufpb.dcx.logfood.repository.ProdutoRepository;
 import br.com.ufpb.dcx.logfood.repository.ProprietarioRepository;
 
@@ -24,6 +28,10 @@ public class LogfoodApplication implements CommandLineRunner{
 	@Autowired
 	ProprietarioRepository propRepository;
 	//PedidoRepository pedidoRepository;
+	@Autowired
+	ItemPedidoRepository itemRepository;
+	@Autowired
+	ClienteRepository clienteRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(LogfoodApplication.class, args);
@@ -63,6 +71,10 @@ public class LogfoodApplication implements CommandLineRunner{
 		
 		//produtoRepository.saveAll(Arrays.asList(prod1, prod2, prod3));
 		estabelecimentoRepository.saveAll(Arrays.asList(est1, est2, est3));
+		
+		Cliente cli1 = new Cliente(null, "Jairo", "jairo@gmail.com", "23234234234");
+		clienteRepository.saveAll(Arrays.asList(cli1));
+		ItemPedido item = new ItemPedido(null,prod1,cli1,5);
 		
 		/*
 		prod1.setEstabelecimento(est1);

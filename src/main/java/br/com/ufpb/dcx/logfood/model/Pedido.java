@@ -18,11 +18,11 @@ public class Pedido {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	@ManyToOne
 	private Estabelecimento estabelecimento;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	@OneToMany
 	private List<ItemPedido> itens;
 	
