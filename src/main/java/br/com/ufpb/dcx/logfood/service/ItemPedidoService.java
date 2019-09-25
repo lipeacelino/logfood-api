@@ -1,5 +1,7 @@
 package br.com.ufpb.dcx.logfood.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,10 @@ public class ItemPedidoService {
 				clienteRepository.findById(itemDTO.getClienteId()).get(),
 				itemDTO.getQuantidade());
 		return item;
+	}
+
+	public List<ItemPedido> findAll() {
+		return itemPedidoRep.findAll();
 	}
 	
 	//falta o delete e put

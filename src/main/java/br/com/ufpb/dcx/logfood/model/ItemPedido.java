@@ -7,9 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 public class ItemPedido {
@@ -28,11 +27,14 @@ public class ItemPedido {
 	private Pedido pedido;
 	
 	//@JsonManagedReference
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Cliente cliente;
 	
 	private int quantidade;
 
+	public ItemPedido() {
+		
+	}
 	
 	public ItemPedido(Long id, Produto produto, Cliente cliente, int quantidade) {
 		this.id = id;
@@ -41,7 +43,7 @@ public class ItemPedido {
 		this.quantidade = quantidade;
 	}
 
-
+	
 	public Long getId() {
 		return id;
 	}

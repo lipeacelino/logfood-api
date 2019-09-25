@@ -3,7 +3,6 @@ package br.com.ufpb.dcx.logfood.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +25,7 @@ public class Cliente implements Serializable {
 	
 	//pedido
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany
 	private List<ItemPedido> itens;
 	
 	public Cliente() {}
@@ -36,6 +35,15 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+	}
+	
+
+	public Cliente(Long id, String nome, String email, String senha, List<ItemPedido> itens) {
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.itens = itens;
 	}
 
 	public Long getId() {
@@ -69,7 +77,7 @@ public class Cliente implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-/*
+
 	public List<ItemPedido> getItens() {
 		return itens;
 	}
@@ -77,7 +85,7 @@ public class Cliente implements Serializable {
 	public void setItens(List<ItemPedido> itens) {
 		this.itens = itens;
 	}
-*/
+
 	
 	
 }

@@ -48,8 +48,6 @@ public class LogfoodApplication implements CommandLineRunner{
 		Proprietario prop1 = new Proprietario(null, "Felipe", "felipe@gmail.com", "sdfsdfsdf" );
 		Proprietario prop2 = new Proprietario(null, "João", "joao@gmail.com", "s6798468sdf9");
 		Proprietario prop3 = new Proprietario(null, "Cícero", "cicero@gmail.com", "s6sdfsdfwe2duiy");
-		//Proprietario prop4 = new Proprietario(null, "Cícero", "cicero@gmail.com", "s6sdfsdfwe2duiy");
-		//propRepository.save(prop4);
 		
 		//Estabelecimentos
 		Estabelecimento est1 = new Estabelecimento(null, "Pizzaria do dedé", "Pizzaria", "Pizzas baratas e gostosas", prop1);
@@ -69,20 +67,7 @@ public class LogfoodApplication implements CommandLineRunner{
 		prop2.setEstabelecimento(est2);
 		prop3.setEstabelecimento(est3);
 		
-		//produtoRepository.saveAll(Arrays.asList(prod1, prod2, prod3));
 		estabelecimentoRepository.saveAll(Arrays.asList(est1, est2, est3));
-		
-		Cliente cli1 = new Cliente(null, "Jairo", "jairo@gmail.com", "23234234234");
-		clienteRepository.saveAll(Arrays.asList(cli1));
-		ItemPedido item = new ItemPedido(null,prod1,cli1,5);
-		
-		/*
-		prod1.setEstabelecimento(est1);
-		prod2.setEstabelecimento(est2);
-		prod3.setEstabelecimento(est3);
-		produtoRepository.saveAll(Arrays.asList(prod1,prod2,prod3));		
-		*/
-		
-		//pedidoRepository.saveAll(Arrays.asList(ped1, ped2, ped3));
+		//itemRepository.saveAndFlush(item1);
 	}
 }

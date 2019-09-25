@@ -10,9 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Produto implements Serializable {
@@ -101,6 +99,14 @@ public class Produto implements Serializable {
 	}
 	public double getValor() {
 		return valor;
+	}
+
+	public List<ItemPedido> getItem() {
+		return item;
+	}
+
+	public void setItem(List<ItemPedido> item) {
+		this.item = item;
 	}
 	
 }
