@@ -1,6 +1,7 @@
 package br.com.ufpb.dcx.logfood.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ufpb.dcx.logfood.dto.EditarProdutoDTO;
+import br.com.ufpb.dcx.logfood.dto.ExibirClienteDTO;
 import br.com.ufpb.dcx.logfood.dto.ExibirProdutoDTO;
 import br.com.ufpb.dcx.logfood.dto.NovoProdutoDTO;
+import br.com.ufpb.dcx.logfood.model.Cliente;
 import br.com.ufpb.dcx.logfood.model.Produto;
 import br.com.ufpb.dcx.logfood.service.ProdutoService;
 
@@ -38,6 +41,13 @@ public class ProdutoController {
 		List<ExibirProdutoDTO> listaDTO = lista.stream()
 				.map(obj -> new ExibirProdutoDTO(obj)).collect(Collectors.toList());
 		return listaDTO;
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ExibirProdutoDTO getById(@PathVariable("id") Long id){
+		Optional<Produto> obj = produtoService.getById(id);
+		ExibirProdutoDTO objDTO = new ExibirProdutoDTO(obj.get());
+		return objDTO;
 	}
 	
 	@PutMapping(value="/{id}")

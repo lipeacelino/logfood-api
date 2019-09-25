@@ -53,4 +53,20 @@ public class PedidoService {
 	public List<Pedido> findAll() {
 		return pedidoRepository.findAll();
 	}
+
+	public void delete(Long id) {
+		pedidoRepository.deleteById(id);
+		
+	}
+
+	public void update(Long id, Pedido pedido) {
+		Optional<Pedido> pedidoOptional = findById(id);
+		if (pedidoOptional.isPresent()) {
+			Pedido pedidoDb = pedidoOptional.get();
+			pedidoDb.setStatus(pedido.getStatus());;
+			pedidoRepository.save(pedidoDb);
+		} else {
+			throw new RuntimeException("Não foi possível atualizar o Proprietario");
+		}	
+	}
 }
