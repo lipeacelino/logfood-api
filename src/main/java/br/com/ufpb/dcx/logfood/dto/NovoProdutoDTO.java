@@ -1,11 +1,14 @@
 package br.com.ufpb.dcx.logfood.dto;
 
+import br.com.ufpb.dcx.logfood.model.Cliente;
+
 public class NovoProdutoDTO {
 
 	private Long id;
 	private String titulo;
 	private String descricao;
 	private double valor;
+	private Cliente cliente;
 	
 	private Long estabelecimentoId;
 
@@ -47,6 +50,14 @@ public class NovoProdutoDTO {
 
 	public void setEstabelecimentoId(Long estId) {
 		this.estabelecimentoId = estId;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	
 }

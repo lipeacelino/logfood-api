@@ -24,6 +24,7 @@ public class Cliente implements Serializable {
 	private String senha;
 	
 	//pedido
+	
 	@JsonIgnore
 	@OneToMany
 	private List<ItemPedido> itens;

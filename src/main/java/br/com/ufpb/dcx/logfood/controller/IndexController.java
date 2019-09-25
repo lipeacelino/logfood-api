@@ -10,7 +10,7 @@ public class IndexController {
 	
 	@GetMapping
 	public String index() {
-		return "Welcome to LogFood API";
+		return "Welcome to LogFood API &#9786;";
 	}
 	
 }

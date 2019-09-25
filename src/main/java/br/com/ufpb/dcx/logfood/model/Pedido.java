@@ -1,7 +1,5 @@
 package br.com.ufpb.dcx.logfood.model;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -20,12 +18,6 @@ public class Pedido {
 	private String data;
 	private String status;
 	
-	/*
-	//@JsonManagedReference
-	@ManyToOne
-	private Estabelecimento estabelecimento;
-	*/
-	//@JsonManagedReference
 	@OneToMany
 	private List<ItemPedido> itens;
 	
