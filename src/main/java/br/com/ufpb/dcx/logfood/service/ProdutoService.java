@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import br.com.ufpb.dcx.logfood.dto.EditarProdutoDTO;
 import br.com.ufpb.dcx.logfood.dto.NovoProdutoDTO;
 import br.com.ufpb.dcx.logfood.model.Produto;
-import br.com.ufpb.dcx.logfood.model.Proprietario;
 import br.com.ufpb.dcx.logfood.repository.EstabelecimentoRepository;
 import br.com.ufpb.dcx.logfood.repository.ProdutoRepository;
 
