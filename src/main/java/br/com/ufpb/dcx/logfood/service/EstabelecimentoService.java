@@ -30,4 +30,8 @@ public class EstabelecimentoService {
 		} 
 	}
 
+	public Optional<Estabelecimento> getById(Long id) {
+		return estabelecimentoRepository.findById(id);
+	}
+
 }

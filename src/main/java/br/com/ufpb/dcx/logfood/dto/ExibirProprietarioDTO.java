@@ -1,3 +1,4 @@
+ 
 package br.com.ufpb.dcx.logfood.dto;
 
 import br.com.ufpb.dcx.logfood.model.Proprietario;
